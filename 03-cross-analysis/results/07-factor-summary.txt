@@ -1,0 +1,48 @@
+Best-selling characteristic in each category
+============================================
+Category      | Characteristic | Products | Units sold | Searches | Sum trends, %
+--------------+----------------+----------+------------+----------+--------------
+Size          | 6 inch         | 10       | 7,947      | 4,756    | +29%         
+Material      | plastic        | 20       | 15,204     | 5,855    | +82%         
+Purpose       | indoor         | 36       | 24,393     | 39,878   | N/A          
+Functionality | drainage       | 32       | 22,321     | 16,692   | +104%        
+Design        | white          | 12       | 7,448      | 1,559    | -5%          
+Plant Type    | snake          | 1        | 193        | 1,610    | +6%          
+
+
+Best and worst groups by average sales
+======================================
+Factor            | Best group          | Products | Avg units | Lowest group            | Products | Avg units
+------------------+---------------------+----------+-----------+-------------------------+----------+----------
+Price             | $10–19.99           | 23       | 892.5     | $30–49.99               | 3        | 358.7    
+Rating            | 4.5–4.79            | 32       | 765.1     | 4.8+                    | 6        | 237.0    
+Review count      | 1,000–4,999         | 18       | 898.7     | <100                    | 4        | 141.2    
+Review velocity   | 50–99               | 9        | 1,052.9   | <10                     | 8        | 347.0    
+Sponsored         | Yes                 | 6        | 931.2     | No                      | 44       | 630.8    
+Brand             | YNNICO              | 4        | 1,050.8   | Classic Home and Garden | 4        | 220.2    
+Fulfillment       | FBA                 | 40       | 767.5     | AMZ                     | 8        | 289.0    
+Amazon Buy Box    | No                  | 40       | 764.4     | Yes                     | 10       | 276.8    
+Amazon seller     | No                  | 40       | 764.4     | Yes                     | 10       | 276.8    
+Seller country    | US                  | 4        | 1,462.5   | AMZ                     | 8        | 289.0    
+Best Seller badge | Yes                 | 3        | 1,982.3   | No                      | 47       | 582.9    
+Images            | 7–9                 | 37       | 723.8     | 4–6                     | 12       | 528.2    
+Title length      | 150–199             | 24       | 840.8     | 100–149                 | 16       | 472.4    
+Listing age       | 36m+                | 39       | 768.2     | 12–35m                  | 11       | 307.5    
+Seller age        | 12–35m              | 22       | 901.2     | <12m                    | 8        | 168.8    
+Active sellers    | 4+                  | 5        | 834.8     | 2–3                     | 15       | 446.5    
+Weight            | 1–2.99              | 25       | 861.5     | <1                      | 11       | 353.5    
+Dimensions volume | <200                | 6        | 931.2     | 1,000+                  | 7        | 182.9    
+Size tier         | Large Standard-Size | 43       | 726.8     | Large and Bulky         | 7        | 298.9    
+Fees              | $5–9.99             | 20       | 845.4     | $10–19.99               | 26       | 566.8    
+
+
+Overall market leaders
+======================
+Metric               | Value                                                                                                                                                         
+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Best-selling product | TDHDIKE 4" Small Plastic Plant Nursery Pot/Pots (100pcs Pots and 100pcs Plant Labels) Seedlings Flower Plant Container (Red) Seed Starting Pots Indoor Outdoor
+Product brand        | TDHDIKE                                                                                                                                                       
+Product sales        | 3,500                                                                                                                                                         
+Best-selling brand   | YNNICO                                                                                                                                                        
+Brand sales          | 4,203                                                                                                                                                         
+
