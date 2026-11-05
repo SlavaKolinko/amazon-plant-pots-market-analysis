@@ -1,0 +1,217 @@
+1. Categories with the highest search volume
+============================================
+Category      | Search volume
+--------------+--------------
+Size          | 37,604       
+Purpose       | 29,932       
+Design        | 15,815       
+Material      | 12,888       
+Functionality | 8,358        
+Plant Type    | 2,469        
+
+
+2. Most popular characteristic in each category
+===============================================
+Category      | Characteristic | Search volume
+--------------+----------------+--------------
+Size          | small          | 8,144        
+Material      | plastic        | 4,670        
+Purpose       | indoor         | 25,277       
+Functionality | drainage       | 2,721        
+Design        | funny          | 2,119        
+Plant Type    | snake          | 1,610        
+
+
+3. Least popular characteristic in each category
+================================================
+Category      | Characteristic | Search volume
+--------------+----------------+--------------
+Size          | 7 inch         | 1,307        
+Material      | terracotta     | 3,699        
+Purpose       | house          | 1,862        
+Functionality | stand          | 1,311        
+Design        | boho           | 924          
+Plant Type    | spider         | 859          
+
+
+4. Characteristics with the highest trend growth
+================================================
+Category          | Characteristic    | Trend, % | Search volume
+------------------+-------------------+----------+--------------
+Design            | tamagotchi        | +520%    | 1,862        
+Design            | peeing            | +437%    | 1,557        
+Purpose           | outdoor           | +92%     | 2,793        
+Design            | funny             | +69%     | 2,119        
+Size              | 4 inch            | +64%     | 4,189        
+Size              | small             | +61%     | 8,144        
+Combined Features | clear + drainage  | +52%     | 4,416        
+Combined Features | clear + plastic   | +48%     | 1,185        
+Functionality     | drainage          | +44%     | 2,721        
+Size              | mini              | +37%     | 1,399        
+Size              | 7 inch            | +37%     | 1,307        
+Material          | plastic           | +34%     | 4,670        
+Design            | boho              | +34%     | 924          
+Design            | unique            | +31%     | 1,559        
+Size              | 6 inch            | +29%     | 4,756        
+General           | plant pot         | +21%     | 67,236       
+Size              | 10 inch           | +20%     | 4,407        
+Size              | 5 inch            | +16%     | 1,557        
+Plant Type        | spider            | +15%     | 859          
+Size              | 8 inch            | +13%     | 4,414        
+Design            | clear             | +13%     | 1,795        
+Combined Features | drainage + indoor | +8%      | 9,555        
+Purpose           | house             | +7%      | 1,862        
+Purpose           | indoor            | +6%      | 25,277       
+Plant Type        | snake             | +6%      | 1,610        
+Material          | terracotta        | +3%      | 3,699        
+Functionality     | stand             | +3%      | 1,311        
+Size              | big               | +2%      | 1,386        
+Design            | cute              | +1%      | 1,869        
+
+
+5. Characteristics with the largest trend decline
+=================================================
+Category          | Characteristic | Trend, % | Search volume
+------------------+----------------+----------+--------------
+Material          | ceramic        | -14%     | 4,519        
+Functionality     | smart          | -14%     | 1,858        
+Size              | large          | -13%     | 6,045        
+Combined Features | indoor + large | -13%     | 3,651        
+Functionality     | saucers        | -7%      | 2,468        
+Design            | white          | -5%      | 1,559        
+Design            | decorative     | -3%      | 1,386        
+Design            | black          | -3%      | 1,185        
+
+
+6. Categories with the highest sum of trends
+============================================
+Category      | Sum of trends
+--------------+--------------
+Design        | +1094%       
+Size          | +266%        
+Purpose       | +105%        
+Functionality | +26%         
+Material      | +23%         
+Plant Type    | +21%         
+
+
+7. Categories with the lowest sum of trends
+===========================================
+Category      | Sum of trends
+--------------+--------------
+Plant Type    | +21%         
+Material      | +23%         
+Functionality | +26%         
+Purpose       | +105%        
+Size          | +266%        
+Design        | +1094%       
+
+
+8. Highest trend in each category
+=================================
+Category      | Characteristic | Trend, %
+--------------+----------------+---------
+Size          | 4 inch         | +64%    
+Material      | plastic        | +34%    
+Purpose       | outdoor        | +92%    
+Functionality | drainage       | +44%    
+Design        | tamagotchi     | +520%   
+Plant Type    | spider         | +15%    
+
+
+9. Lowest trend in each category
+================================
+Category      | Characteristic | Trend, %
+--------------+----------------+---------
+Size          | large          | -13%    
+Material      | ceramic        | -14%    
+Purpose       | indoor         | +6%     
+Functionality | smart          | -14%    
+Design        | white          | -5%     
+Plant Type    | snake          | +6%     
+
+
+10. Growing characteristics by category
+=======================================
+Category          | Characteristic    | Trend, % | Search volume
+------------------+-------------------+----------+--------------
+Size              | 4 inch            | +64%     | 4,189        
+Size              | small             | +61%     | 8,144        
+Size              | mini              | +37%     | 1,399        
+Size              | 7 inch            | +37%     | 1,307        
+Size              | 6 inch            | +29%     | 4,756        
+Size              | 10 inch           | +20%     | 4,407        
+Size              | 5 inch            | +16%     | 1,557        
+Size              | 8 inch            | +13%     | 4,414        
+Size              | big               | +2%      | 1,386        
+Material          | plastic           | +34%     | 4,670        
+Material          | terracotta        | +3%      | 3,699        
+Purpose           | outdoor           | +92%     | 2,793        
+Purpose           | house             | +7%      | 1,862        
+Purpose           | indoor            | +6%      | 25,277       
+Functionality     | drainage          | +44%     | 2,721        
+Functionality     | stand             | +3%      | 1,311        
+Design            | tamagotchi        | +520%    | 1,862        
+Design            | peeing            | +437%    | 1,557        
+Design            | funny             | +69%     | 2,119        
+Design            | boho              | +34%     | 924          
+Design            | unique            | +31%     | 1,559        
+Design            | clear             | +13%     | 1,795        
+Design            | cute              | +1%      | 1,869        
+Plant Type        | spider            | +15%     | 859          
+Plant Type        | snake             | +6%      | 1,610        
+General           | plant pot         | +21%     | 67,236       
+Combined Features | clear + drainage  | +52%     | 4,416        
+Combined Features | clear + plastic   | +48%     | 1,185        
+Combined Features | drainage + indoor | +8%      | 9,555        
+
+
+11. Declining characteristics by category
+=========================================
+Category          | Characteristic | Trend, % | Search volume
+------------------+----------------+----------+--------------
+Size              | large          | -13%     | 6,045        
+Material          | ceramic        | -14%     | 4,519        
+Functionality     | smart          | -14%     | 1,858        
+Functionality     | saucers        | -7%      | 2,468        
+Design            | white          | -5%      | 1,559        
+Design            | decorative     | -3%      | 1,386        
+Design            | black          | -3%      | 1,185        
+Combined Features | indoor + large | -13%     | 3,651        
+
+
+12. Most competitive characteristic in each category
+====================================================
+Category      | Characteristic | Competing products | Competition level
+--------------+----------------+--------------------+------------------
+Size          | small          | >140,000           | High             
+Material      | plastic        | >40,000            | High             
+Purpose       | indoor         | >160,000           | High             
+Functionality | drainage       | >20,000            | High             
+Design        | decorative     | >20,000            | High             
+Plant Type    | snake          | >2,000             | Low              
+
+
+13. Least competitive characteristic in each category
+=====================================================
+Category      | Characteristic | Competing products | Competition level
+--------------+----------------+--------------------+------------------
+Size          | 7 inch         | >3,000             | Low              
+Material      | terracotta     | >3,000             | Low              
+Purpose       | house          | >20,000            | High             
+Functionality | smart          | >1,000             | Low              
+Design        | tamagotchi     | 81                 | Low              
+Plant Type    | spider         | >1,000             | Low              
+
+
+14. Categories with the highest competition
+===========================================
+Category      | Competing products
+--------------+-------------------
+Size          | >388,000          
+Purpose       | >260,000          
+Design        | >71,734           
+Material      | >63,000           
+Functionality | >35,000           
+Plant Type    | >3,000            
+
