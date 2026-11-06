@@ -1,4 +1,3 @@
-
 import csv
 import re
 from collections import defaultdict
@@ -64,18 +63,32 @@ def get_trend(value):
         return None
 
 
-def get_competition_level(value):
+def get_competition_level(value, approximate=False):
+    """Levels based on a reported value or a strict lower bound, not a sum."""
+    if value >= 20000:
+        return "High"
+    if approximate:
+        return "At least Medium" if value >= 5000 else "Unknown"
     if value < 5000:
         return "Low"
-    if value < 20000:
-        return "Medium"
-    return "High"
+    return "Medium"
+
+
+def calculate_group_trend(comparable_current, previous_volume):
+    """Aggregate percentage change over comparable rows only."""
+    if previous_volume <= 0:
+        return None
+    return (comparable_current / previous_volume - 1) * 100
+
+
+def format_competition(number, approximate):
+    return (">" if approximate else "") + f"{number:,}"
 
 
 def format_trend(value):
     if value is None:
         return "N/A"
-    return f"{value:+g}%"
+    return f"{value:+.2f}%"
 
 
 def make_table(headers, rows, category_index=None):
@@ -144,43 +157,53 @@ results = []
 
 for (category, characteristic), rows in data.items():
     total_volume = 0
-    total_trend = 0
-    total_competition = 0
-    missing_trend = False
-    approximate = False
+    comparable_current = 0
+    previous_volume = 0.0
+    valid_trends = 0
+    competition_number = None
+    competition_approximate = False
 
     for row in rows:
         volume = get_number(row["Search Volume, q./last month"])
         trend = get_trend(row["Search Volume Trend, %"])
-        competition_text = row["Competing Products"]
+        competition_text = row["Competing Products"].strip()
+        competitor_count = get_number(competition_text)
+        competitor_is_lower_bound = ">" in competition_text
 
         total_volume += volume
-        total_competition += get_number(competition_text)
 
-        if trend is None:
-            missing_trend = True
-        else:
-            total_trend += trend
+        # Percent changes are NOT additive. Reconstruct comparable prior volumes.
+        # Missing or invalid trends remain in the total demand, but not trend calculations.
+        if trend is not None and trend > -100:
+            comparable_current += volume
+            previous_volume += volume / (1 + trend / 100)
+            valid_trends += 1
 
-        if ">" in competition_text:
-            approximate = True
+        # This is the maximum REPORTED observation, NOT a unique product count.
+        if competition_number is None or competitor_count > competition_number:
+            competition_number = competitor_count
+            competition_approximate = competitor_is_lower_bound
+        elif competitor_count == competition_number and competitor_is_lower_bound:
+            competition_approximate = True
 
-    competition_result = (
-        f">{total_competition:,}"
-        if approximate
-        else f"{total_competition:,}"
-    )
+    if competition_number is None:
+        competition_number = 0
+
+    grouped_trend = calculate_group_trend(comparable_current, previous_volume)
 
     results.append({
         "Category": category,
         "Characteristic": characteristic,
         "Keywords": len(rows),
         "Search Volume": total_volume,
-        "Trend": None if missing_trend else total_trend,
-        "Competing Products": competition_result,
-        "Competition Number": total_competition,
-        "Competition Approximate": approximate,
-        "Competition Level": get_competition_level(total_competition)
+        "Comparable Current Volume": comparable_current,
+        "Previous Volume": previous_volume,
+        "Valid Trends": valid_trends,
+        "Trend": grouped_trend,
+        "Competing Products": format_competition(competition_number, competition_approximate),
+        "Competition Number": competition_number,
+        "Competition Approximate": competition_approximate,
+        "Competition Level": get_competition_level(competition_number, competition_approximate)
     })
 
 
@@ -202,7 +225,7 @@ detail_headers = [
     "Keywords",
     "Search volume",
     "Trend, %",
-    "Competing products",
+    "Max reported competition",
     "Competition level"
 ]
 
@@ -240,14 +263,24 @@ for category in categories:
     if not items:
         continue
 
-    trends = [item["Trend"] for item in items]
+    category_comparable_current = sum(item["Comparable Current Volume"] for item in items)
+    category_previous = sum(item["Previous Volume"] for item in items)
+    category_competition_number = max(item["Competition Number"] for item in items)
+    # If the maximum is reported with '>', retain that uncertainty.
+    category_competition_approximate = any(
+        item["Competition Number"] == category_competition_number
+        and item["Competition Approximate"]
+        for item in items
+    )
 
     category_results.append({
         "Category": category,
         "Search Volume": sum(item["Search Volume"] for item in items),
-        "Trend": sum(trends) if all(t is not None for t in trends) else None,
-        "Competition": sum(item["Competition Number"] for item in items),
-        "Competition Approximate": any(item["Competition Approximate"] for item in items),
+        "Trend": calculate_group_trend(category_comparable_current, category_previous),
+        "Comparable Current Volume": category_comparable_current,
+        "Previous Volume": category_previous,
+        "Competition": category_competition_number,
+        "Competition Approximate": category_competition_approximate,
         "Items": items
     })
 
@@ -361,8 +394,8 @@ valid_categories = [
 
 
 add_section(
-    "6. Categories with the highest sum of trends",
-    ["Category", "Sum of trends"],
+    "6. Categories with the highest aggregated trend",
+    ["Category", "Aggregated trend, %"],
     [
         [item["Category"], format_trend(item["Trend"])]
         for item in sorted(
@@ -373,8 +406,8 @@ add_section(
 )
 
 add_section(
-    "7. Categories with the lowest sum of trends",
-    ["Category", "Sum of trends"],
+    "7. Categories with the lowest aggregated trend",
+    ["Category", "Aggregated trend, %"],
     [
         [item["Category"], format_trend(item["Trend"])]
         for item in sorted(
@@ -482,25 +515,24 @@ for category in category_results:
 
 add_section(
     "12. Most competitive characteristic in each category",
-    ["Category", "Characteristic", "Competing products", "Competition level"],
+    ["Category", "Characteristic", "Max reported competition", "Competition level"],
     best_competition
 )
 
 add_section(
     "13. Least competitive characteristic in each category",
-    ["Category", "Characteristic", "Competing products", "Competition level"],
+    ["Category", "Characteristic", "Max reported competition", "Competition level"],
     lowest_competition
 )
 
 
 add_section(
-    "14. Categories with the highest competition",
-    ["Category", "Competing products"],
+    "14. Categories with the highest max reported competition",
+    ["Category", "Max reported competition"],
     [
         [
             item["Category"],
-            (">" if item["Competition Approximate"] else "")
-            + f'{item["Competition"]:,}'
+            format_competition(item["Competition"], item["Competition Approximate"])
         ]
         for item in sorted(
             category_results,
