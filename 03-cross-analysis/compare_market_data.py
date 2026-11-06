@@ -368,31 +368,34 @@ for feature in all_features:
         )
     ]
 
-    trends = [
-        number(keyword["Search Volume Trend, %"])
-        for keyword in matched_keywords
-    ]
+    comparable_current = 0
+    comparable_previous = 0
+
+    for keyword in matched_keywords:
+        volume = whole_number(keyword["Search Volume, q./last month"])
+        trend = number(keyword["Search Volume Trend, %"])
+        if volume is not None and trend is not None and trend > -100:
+            comparable_current += volume
+            comparable_previous += volume / (1 + trend / 100)
 
     total_trend = (
-        sum(trends)
-        if trends and all(t is not None for t in trends)
-        else None
+        (comparable_current / comparable_previous - 1) * 100
+        if comparable_previous > 0 else None
     )
 
-    competition = sum(
-        whole_number(keyword["Competing Products"]) or 0
+    reported_competition = [
+        (whole_number(keyword["Competing Products"]),
+         ">" in keyword["Competing Products"])
         for keyword in matched_keywords
-    )
-
-    approximate = any(
-        ">" in keyword["Competing Products"]
-        for keyword in matched_keywords
-    )
-
-    competition_text = (
-        (">" if approximate else "")
-        + display(competition, 0)
-    )
+    ]
+    reported_competition = [
+        item for item in reported_competition if item[0] is not None
+    ]
+    if reported_competition:
+        competition, approximate = max(reported_competition, key=lambda item: item[0])
+        competition_text = (">" if approximate else "") + display(competition, 0)
+    else:
+        competition_text = "N/A"
 
     feature_results.append({
         "category": feature_categories.get(feature, "Other"),
@@ -436,7 +439,7 @@ feature_headers = [
     "Characteristic",
     "Keywords",
     "Searches",
-    "Sum trends, %",
+    "Grouped trend, %",
     "Competing products",
     "Products",
     "Units sold",
@@ -1091,7 +1094,7 @@ save_document(
                 "Products",
                 "Units sold",
                 "Searches",
-                "Sum trends, %"
+                "Grouped trend, %"
             ],
             best_features,
             None

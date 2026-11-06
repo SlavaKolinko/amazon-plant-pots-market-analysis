@@ -1,13 +1,13 @@
 Best-selling characteristic in each category
 ============================================
-Category      | Characteristic | Products | Units sold | Searches | Sum trends, %
---------------+----------------+----------+------------+----------+--------------
-Size          | 6 inch         | 10       | 7,947      | 4,756    | +29%         
-Material      | plastic        | 20       | 15,204     | 5,855    | +82%         
-Purpose       | indoor         | 36       | 24,393     | 39,878   | N/A          
-Functionality | drainage       | 32       | 22,321     | 16,692   | +104%        
-Design        | white          | 12       | 7,448      | 1,559    | -5%          
-Plant Type    | snake          | 1        | 193        | 1,610    | +6%          
+Category      | Characteristic | Products | Units sold | Searches | Grouped trend, %
+--------------+----------------+----------+------------+----------+-----------------
+Size          | 6 inch         | 10       | 7,947      | 4,756    | +29%            
+Material      | plastic        | 20       | 15,204     | 5,855    | +24.2819%       
+Purpose       | indoor         | 36       | 24,393     | 39,878   | +5.81198%       
+Functionality | drainage       | 32       | 22,321     | 16,692   | +22.3979%       
+Design        | white          | 12       | 7,448      | 1,559    | -5%             
+Plant Type    | snake          | 1        | 193        | 1,610    | +6%             
 
 
 Best and worst groups by average sales
